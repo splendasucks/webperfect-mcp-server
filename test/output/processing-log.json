@@ -1,0 +1,46 @@
+{
+  "totalFiles": 3,
+  "totalOriginalSize": "0.10MB",
+  "totalOptimizedSize": "0.02MB",
+  "details": [
+    {
+      "file": "test1.webp",
+      "originalFormat": "jpg",
+      "originalSize": "35.27KB",
+      "optimizedSize": "5.36KB",
+      "resolution": "3840x2880",
+      "enhancements": [
+        "noise_reduction",
+        "auto_levels_curves",
+        "texture_enhancement",
+        "resolution_optimization"
+      ]
+    },
+    {
+      "file": "test2.webp",
+      "originalFormat": "jpg",
+      "originalSize": "35.32KB",
+      "optimizedSize": "5.35KB",
+      "resolution": "3840x2880",
+      "enhancements": [
+        "noise_reduction",
+        "auto_levels_curves",
+        "texture_enhancement",
+        "resolution_optimization"
+      ]
+    },
+    {
+      "file": "test3.webp",
+      "originalFormat": "jpg",
+      "originalSize": "35.31KB",
+      "optimizedSize": "5.35KB",
+      "resolution": "3840x2880",
+      "enhancements": [
+        "noise_reduction",
+        "auto_levels_curves",
+        "texture_enhancement",
+        "resolution_optimization"
+      ]
+    }
+  ]
+}
