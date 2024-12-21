@@ -16,6 +16,8 @@
 
 WebPerfect is a cutting-edge MCP server that revolutionizes image optimization for the web. Using advanced AI algorithms and sophisticated processing techniques, it automatically enhances your images while dramatically reducing file sizes - all without compromising visual quality.
 
+<a href="https://glama.ai/mcp/servers/am3lop071j"><img width="380" height="200" src="https://glama.ai/mcp/servers/am3lop071j/badge" alt="WebPerfect Server MCP server" /></a>
+
 ### 🚀 Key Benefits
 
 - **Intelligent Processing**: AI-powered algorithms adapt to each image's unique characteristics
