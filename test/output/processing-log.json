@@ -1,44 +1,57 @@
 {
-  "totalFiles": 3,
-  "totalOriginalSize": "0.10MB",
-  "totalOptimizedSize": "0.02MB",
+  "totalFiles": 4,
+  "totalOriginalSize": "5.36MB",
+  "totalOptimizedSize": "0.95MB",
   "details": [
     {
-      "file": "test1.webp",
+      "file": "pexels-andriy-nestruiev-288919368-15073866.webp",
       "originalFormat": "jpg",
-      "originalSize": "35.27KB",
-      "optimizedSize": "5.36KB",
-      "resolution": "3840x2880",
+      "originalSize": "1025.82KB",
+      "optimizedSize": "75.47KB",
+      "resolution": "2048x1363",
       "enhancements": [
-        "noise_reduction",
-        "auto_levels_curves",
-        "texture_enhancement",
+        "dark_scene_optimization",
+        "balanced_tone_mapping",
+        "gentle_detail_enhancement",
         "resolution_optimization"
       ]
     },
     {
-      "file": "test2.webp",
+      "file": "pexels-beyzaa-yurtkuran-279977530-16245252.webp",
       "originalFormat": "jpg",
-      "originalSize": "35.32KB",
-      "optimizedSize": "5.35KB",
-      "resolution": "3840x2880",
+      "originalSize": "2314.70KB",
+      "optimizedSize": "538.13KB",
+      "resolution": "2048x3072",
       "enhancements": [
-        "noise_reduction",
-        "auto_levels_curves",
-        "texture_enhancement",
+        "dark_scene_optimization",
+        "balanced_tone_mapping",
+        "gentle_detail_enhancement",
         "resolution_optimization"
       ]
     },
     {
-      "file": "test3.webp",
+      "file": "pexels-cottonbro-6889216.webp",
       "originalFormat": "jpg",
-      "originalSize": "35.31KB",
-      "optimizedSize": "5.35KB",
-      "resolution": "3840x2880",
+      "originalSize": "963.54KB",
+      "optimizedSize": "123.87KB",
+      "resolution": "2048x3072",
       "enhancements": [
-        "noise_reduction",
-        "auto_levels_curves",
-        "texture_enhancement",
+        "dark_scene_optimization",
+        "balanced_tone_mapping",
+        "gentle_detail_enhancement",
+        "resolution_optimization"
+      ]
+    },
+    {
+      "file": "pexels-shottrotter-1034653.webp",
+      "originalFormat": "jpg",
+      "originalSize": "1184.24KB",
+      "optimizedSize": "236.43KB",
+      "resolution": "2048x1347",
+      "enhancements": [
+        "dark_scene_optimization",
+        "balanced_tone_mapping",
+        "gentle_detail_enhancement",
         "resolution_optimization"
       ]
     }
