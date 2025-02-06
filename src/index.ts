@@ -81,79 +81,57 @@ class ImageProcessorServer {
       const metadata = await pipeline.metadata();
       const stats = await pipeline.stats();
 
-      // Step 1: Basic image analysis
-      const { dominant, channels } = stats;
-      const avgLuminance = (channels[0].mean + channels[1].mean + channels[2].mean) / 3;
-      const isDark = avgLuminance < 100; // More selective dark detection
-      const isHighDetail = stats.entropy > 0.85;
-      const hasText = stats.entropy > 0.9 && stats.isOpaque;
+      // Step 1: Strong noise reduction
+      pipeline = pipeline.median(5);
+      enhancements.push('noise_reduction');
 
-      // Step 2: Minimal preprocessing
-      if (isDark) {
-        pipeline = pipeline.median(1);
-        enhancements.push('dark_scene_optimization');
-      } else {
-        pipeline = pipeline.median(1.5);
-        enhancements.push('standard_optimization');
-      }
-
-      // Step 3: Gentle color and contrast
+      // Step 2: Auto levels and curves
       pipeline = pipeline
-        .normalise({ 
-          lower: isDark ? 1 : 2,
-          upper: isDark ? 98 : 97
-        })
-        .linear(
-          1.0,                    // Keep original brightness
-          isDark ? 0.03 : 0.08    // Very subtle contrast
-        );
-      enhancements.push('balanced_tone_mapping');
+          .normalise()
+          .linear(
+              stats.entropy < 0.7 ? 1.2 : 0.9,  // Brightness adjustment
+              stats.entropy < 0.7 ? -0.1 : 0.1  // Contrast adjustment
+          );
+      enhancements.push('auto_levels_curves');
 
-      // Step 4: Minimal sharpening
-      pipeline = pipeline.sharpen({
-        sigma: isDark ? 0.5 : 0.7,
-        m1: 0.2,                  // Gentle edge enhancement
-        m2: 0.3,                  // Control haloing
-        x1: 2,
-        y2: isDark ? 25 : 20,     // Higher threshold for dark scenes
-        y3: isDark ? 120 : 150    // Reduced enhancement
-      });
-      enhancements.push('gentle_detail_enhancement');
+      // Step 3: Texture enhancement
+      pipeline = pipeline
+          .modulate({
+              brightness: 1.1,
+              saturation: 1.1
+          })
+          .sharpen({
+              sigma: 0.8,
+              m1: 0.3,
+              m2: 0.5
+          });
+      enhancements.push('texture_enhancement');
 
-      // Step 6: Efficient resolution handling
+      // Step 4: Scale to target resolution
+      // Default to 1920 if width is undefined
       const baseWidth = metadata.width || 1920;
-      let targetWidth = baseWidth;
-      
-      // Only scale down if larger than 2K
-      if (baseWidth > 2048) {
-        targetWidth = 2048;
-      }
-      
+      const targetWidth = baseWidth > 1920 ? 3840 : 1920;
       const targetHeight = metadata.height 
-        ? Math.round(metadata.height * (targetWidth / baseWidth))
-        : Math.round(targetWidth * 0.75);
+          ? Math.round(metadata.height * (targetWidth / baseWidth))
+          : Math.round(targetWidth * 0.75); // 4:3 aspect ratio as fallback
 
       pipeline = pipeline.resize(targetWidth, targetHeight, {
-        fit: 'inside',
-        withoutEnlargement: true,
-        kernel: 'lanczos3'
+          fit: 'inside',
+          withoutEnlargement: true,
+          kernel: 'lanczos3'
       });
       enhancements.push('resolution_optimization');
 
-      // Save with balanced WebP settings
+      // Save as WebP with optimized settings
       const outputFilename = `${path.basename(inputPath, path.extname(inputPath))}.webp`;
       const outputPath = path.join(outputDir, outputFilename);
       
-      const webpOptions = {
-        quality: isDark ? 82 : 75,           // Balanced quality
-        effort: 6,                           // Maximum compression effort
-        smartSubsample: true,                // Enable smart subsampling
-        nearLossless: false,                 // Use lossy compression
-        alphaQuality: 85,                    // Good alpha quality
-        force: true                          // Ensure WebP output
-      };
-
-      await pipeline.webp(webpOptions).toFile(outputPath);
+      await pipeline.webp({ 
+          quality: 85,
+          effort: 6,
+          smartSubsample: true,
+          nearLossless: false
+      }).toFile(outputPath);
       
       const optimizedStats = await fs.stat(outputPath);
       progressCallback(`Completed ${filename}`);

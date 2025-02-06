@@ -1,42 +1,20 @@
-<div align="center">
+# WebPerfect MCP Server
 
-# 🎨 WebPerfect MCP Server
+An intelligent MCP server with a fully automated batch pipeline for web-ready images. Features include noise reduction, auto levels/curves, JPEG artifact removal, 4K resizing, smart sharpening with shadow/highlight enhancement, and advanced WebP conversion. Optimized compression delivers smaller files without sacrificing quality.
 
-> Transform your images into web-optimized masterpieces with AI-powered precision
+## Features
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D16-brightgreen)](https://nodejs.org)
-[![Sharp](https://img.shields.io/badge/sharp-latest-blue)](https://sharp.pixelplumbing.com)
-
-</div>
-
----
-
-## ✨ Overview
-
-WebPerfect is a cutting-edge MCP server that revolutionizes image optimization for the web. Using advanced AI algorithms and sophisticated processing techniques, it automatically enhances your images while dramatically reducing file sizes - all without compromising visual quality.
-
-### 🚀 Key Benefits
-
-- **Intelligent Processing**: AI-powered algorithms adapt to each image's unique characteristics
-- **Superior Quality**: Enhanced visual clarity with smart sharpening and noise reduction
-- **Maximum Compression**: Achieve up to 80% size reduction while preserving image quality
-- **Batch Automation**: Process entire directories with a single command
-- **Web Optimized**: Perfect for modern web applications and responsive designs
-
-## 🛠 Features
-
-### 🔄 Advanced Image Processing Pipeline
+### Advanced Image Processing Pipeline
 1. Strong noise reduction using median filtering
 2. Intelligent auto levels and curves based on image entropy
 3. Advanced texture enhancement with modulation and sharpening
 4. Smart resolution optimization (up to 4K)
 5. Optimized WebP conversion
 
-### 🔧 Tools
+### Tools
 
-#### 📦 `process_images`
-Effortlessly process and optimize entire image collections with our advanced enhancement pipeline.
+#### `process_images`
+Process and optimize a batch of images with advanced enhancements.
 ```typescript
 {
   inputDir: string;      // Directory containing input images
@@ -44,9 +22,9 @@ Effortlessly process and optimize entire image collections with our advanced enh
 }
 ```
 
-### 📊 Resources
+### Resources
 
-#### 📈 Resource Templates
+#### Resource Templates
 - `logs/{date}`: Access processing logs by date (YYYY-MM-DD)
   ```json
   {
@@ -125,9 +103,7 @@ Effortlessly process and optimize entire image collections with our advanced enh
   }
   ```
 
-## 🚀 Getting Started
-
-### 📥 Installation
+## Installation
 
 1. Clone the repository:
 ```bash
@@ -145,7 +121,7 @@ npm install
 npm run build
 ```
 
-## 🤖 Usage with Claude
+## Usage with Claude
 
 1. Add the server to your Claude MCP settings (typically in `claude_desktop_config.json`):
 ```json
@@ -183,12 +159,12 @@ npm run build
 </access_mcp_resource>
 ```
 
-## 📋 Requirements
+## Requirements
 
-- 📦 Node.js >= 16
-- 🖼️ Sharp image processing library
-- 🔌 Model Context Protocol SDK
+- Node.js >= 16
+- Sharp image processing library
+- Model Context Protocol SDK
 
-## 📄 License
+## License
 
-[MIT](LICENSE) © 2024 WebPerfect Contributors
+MIT
