@@ -1,5 +1,5 @@
 #!/usr/bin/env bun
-import { Client } from "@modelcontextprotocol/sdk/client/index.js";
+import { MCPClient } from "@modelcontextprotocol/sdk";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 import { spawn } from "child_process";
 import path from "path";
@@ -27,20 +27,24 @@ async function main() {
 	await sleep(1000);
 
 	// Create MCP client with capabilities
-	const client = new Client(
-		new StdioClientTransport(serverProcess.stdout, serverProcess.stdin),
-		{
-			capabilities: {
-				tools: true,
-				resources: true,
-			},
-		}
-	);
+	const client = new MCPClient({
+		name: "webperfect-test-client",
+		version: "1.0.0",
+		transport: new StdioClientTransport(
+			serverProcess.stdout,
+			serverProcess.stdin
+		),
+		capabilities: {
+			tools: {},
+			resources: {},
+			prompts: {},
+		},
+	});
 
 	try {
 		// Initialize connection
 		console.log("🤝 Initializing MCP client connection...");
-		await client.initialize();
+		await client.connect();
 
 		// List available tools
 		console.log("\n📦 Available tools:");
