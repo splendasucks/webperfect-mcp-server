@@ -1,10 +1,13 @@
 # WebPerfect MCP Server
 
+[![WebPerfect MCP Server Status](https://glama.ai/mcp/servers/am3lop071j/badge)](https://glama.ai/mcp/servers/am3lop071j)
+
 An intelligent MCP server with a fully automated batch pipeline for web-ready images. Features include noise reduction, auto levels/curves, JPEG artifact removal, 4K resizing, smart sharpening with shadow/highlight enhancement, and advanced WebP conversion. Optimized compression delivers smaller files without sacrificing quality.
 
 ## Features
 
 ### Advanced Image Processing Pipeline
+
 1. Strong noise reduction using median filtering
 2. Intelligent auto levels and curves based on image entropy
 3. Advanced texture enhancement with modulation and sharpening
@@ -14,7 +17,9 @@ An intelligent MCP server with a fully automated batch pipeline for web-ready im
 ### Tools
 
 #### `process_images`
+
 Process and optimize a batch of images with advanced enhancements.
+
 ```typescript
 {
   inputDir: string;      // Directory containing input images
@@ -25,7 +30,9 @@ Process and optimize a batch of images with advanced enhancements.
 ### Resources
 
 #### Resource Templates
+
 - `logs/{date}`: Access processing logs by date (YYYY-MM-DD)
+
   ```json
   {
     "date": "2024-01-20",
@@ -41,6 +48,7 @@ Process and optimize a batch of images with advanced enhancements.
   ```
 
 - `stats/monthly/{month}`: Monthly statistics (YYYY-MM)
+
   ```json
   {
     "month": "2024-01",
@@ -55,7 +63,9 @@ Process and optimize a batch of images with advanced enhancements.
   ```
 
 #### Static Resources
+
 - `stats/summary`: Overall processing statistics
+
   ```json
   {
     "totalImagesProcessed": 5280,
@@ -74,6 +84,7 @@ Process and optimize a batch of images with advanced enhancements.
   ```
 
 - `config/optimization-presets`: Available optimization presets
+
   ```json
   {
     "presets": {
@@ -106,29 +117,33 @@ Process and optimize a batch of images with advanced enhancements.
 ## Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/splendasucks/webperfect-mcp-server.git
 cd webperfect-mcp-server
 ```
 
-2. Install dependencies:
+1. Install dependencies:
+
 ```bash
-npm install
+bun install
 ```
 
-3. Build the server:
+1. Build the server:
+
 ```bash
-npm run build
+bun run build
 ```
 
 ## Usage with Claude
 
 1. Add the server to your Claude MCP settings (typically in `claude_desktop_config.json`):
+
 ```json
 {
   "mcpServers": {
     "webperfect": {
-      "command": "node",
+      "command": "bun",
       "args": ["/path/to/webperfect-mcp-server/build/index.js"],
       "env": {}
     }
@@ -136,9 +151,10 @@ npm run build
 }
 ```
 
-2. Restart Claude to load the MCP server.
+1. Restart Claude to load the MCP server.
 
-3. The server will be available through Claude's MCP tools and resources:
+1. The server will be available through Claude's MCP tools and resources:
+
 ```typescript
 // Process a batch of images
 <use_mcp_tool>
@@ -161,7 +177,7 @@ npm run build
 
 ## Requirements
 
-- Node.js >= 16
+- Bun >= 1.0
 - Sharp image processing library
 - Model Context Protocol SDK
 
