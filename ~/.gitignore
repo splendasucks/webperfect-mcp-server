@@ -31,11 +31,6 @@ coverage/
 # Temporary files
 tmp/
 temp/
-<<<<<<< HEAD
-
-# Cursor IDE files
-.cursor/
-=======
 .venv/
 
 # Python
@@ -51,4 +46,3 @@ htmlcov/
 # Node.js
 node_modules/
 .npm
->>>>>>> a1d31d0 (Initial commit: WebPerfect MCP Server)
