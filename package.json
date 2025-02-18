@@ -1,45 +1,48 @@
 {
-  "name": "webperfect-mcp-server",
-  "version": "1.0.0",
-  "description": "An intelligent MCP server with a fully automated batch pipeline for web-ready images. Features include noise reduction, auto levels/curves, JPEG artifact removal, 4K resizing, smart sharpening with shadow/highlight enhancement, and advanced WebP conversion. Optimized compression delivers smaller files without sacrificing quality.",
-  "type": "module",
-  "main": "build/index.js",
-  "scripts": {
-    "build": "tsc && chmod +x build/index.js",
-    "start": "bun build/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "mcp",
-    "image-optimization",
-    "webp",
-    "image-processing",
-    "web-performance",
-    "batch-processing",
-    "image-enhancement",
-    "noise-reduction",
-    "jpeg-artifacts",
-    "4k-resolution"
-  ],
-  "author": "splendasucks",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/splendasucks/webperfect-mcp-server.git"
-  },
-  "bugs": {
-    "url": "https://github.com/splendasucks/webperfect-mcp-server/issues"
-  },
-  "homepage": "https://github.com/splendasucks/webperfect-mcp-server#readme",
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "0.6.0",
-    "sharp": "^0.32.6",
-    "image-size": "^1.0.2"
-  },
-  "devDependencies": {
-    "@types/node": "^20.8.7",
-    "@types/sharp": "^0.32.0",
-    "@types/image-size": "^0.8.0",
-    "typescript": "^5.2.2"
-  }
+	"name": "webperfect-mcp-server",
+	"version": "1.0.0",
+	"description": "An intelligent MCP server with a fully automated batch pipeline for web-ready images. Features include noise reduction, auto levels/curves, JPEG artifact removal, 4K resizing, smart sharpening with shadow/highlight enhancement, and advanced WebP conversion. Optimized compression delivers smaller files without sacrificing quality.",
+	"type": "module",
+	"main": "build/index.js",
+	"scripts": {
+		"build": "tsc && chmod +x build/index.js",
+		"start": "node build/index.js",
+		"test": "jest",
+		"test:watch": "jest --watch"
+	},
+	"keywords": [
+		"mcp",
+		"image-optimization",
+		"webp",
+		"image-processing",
+		"web-performance",
+		"batch-processing",
+		"image-enhancement",
+		"noise-reduction",
+		"jpeg-artifacts",
+		"4k-resolution"
+	],
+	"author": "splendasucks",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/splendasucks/webperfect-mcp-server.git"
+	},
+	"bugs": {
+		"url": "https://github.com/splendasucks/webperfect-mcp-server/issues"
+	},
+	"homepage": "https://github.com/splendasucks/webperfect-mcp-server#readme",
+	"dependencies": {
+		"@modelcontextprotocol/sdk": "0.6.0",
+		"sharp": "^0.32.6",
+		"image-size": "^1.0.2"
+	},
+	"devDependencies": {
+		"@jest/globals": "^29.7.0",
+		"@types/jest": "^29.5.12",
+		"@types/node": "^20.8.7",
+		"jest": "^29.7.0",
+		"ts-jest": "^29.1.2",
+		"typescript": "^5.2.2"
+	}
 }

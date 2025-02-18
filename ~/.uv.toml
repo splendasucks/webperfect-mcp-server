@@ -1,5 +1,0 @@
-[python]
-python-preference = "only-managed"
-
-[venv]
-auto-create = true

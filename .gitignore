@@ -2,7 +2,6 @@
 node_modules/
 package-lock.json
 yarn.lock
-bun.lock
 
 # Build output
 build/
@@ -22,6 +21,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Environment variables
+.env
 .env.local
 .env.*.local
 
@@ -31,24 +31,3 @@ coverage/
 # Temporary files
 tmp/
 temp/
-<<<<<<< HEAD
-
-# Cursor IDE files
-.cursor/
-=======
-.venv/
-
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.pytest_cache/
-.coverage
-htmlcov/
-.venv
-
-# Node.js
-node_modules/
-.npm
->>>>>>> a1d31d0 (Initial commit: WebPerfect MCP Server)
