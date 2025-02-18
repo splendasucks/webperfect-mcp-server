@@ -48,7 +48,7 @@ class ImageProcessorServer {
 
     this.setupToolHandlers();
     this.setupResourceHandlers();
-    
+
     this.server.onerror = (error) => console.error('[MCP Error]', error);
     process.on('SIGINT', async () => {
       await this.server.close();
@@ -69,10 +69,10 @@ class ImageProcessorServer {
       const originalStats = await fs.stat(inputPath);
       const originalSize = originalStats.size;
       const originalFormat = path.extname(inputPath).toLowerCase().slice(1);
-      
+
       // Create output directory if it doesn't exist
       await fs.mkdir(outputDir, { recursive: true });
-      
+
       // Initialize sharp pipeline
       let pipeline = sharp(inputPath);
       const enhancements: string[] = [];
@@ -111,7 +111,11 @@ class ImageProcessorServer {
       // Default to 1920 if width is undefined
       const baseWidth = metadata.width || 1920;
       const targetWidth = baseWidth > 1920 ? 3840 : 1920;
+<<<<<<< HEAD
       const targetHeight = metadata.height 
+=======
+      const targetHeight = metadata.height
+>>>>>>> a1d31d0 (Initial commit: WebPerfect MCP Server)
           ? Math.round(metadata.height * (targetWidth / baseWidth))
           : Math.round(targetWidth * 0.75); // 4:3 aspect ratio as fallback
 
@@ -125,17 +129,26 @@ class ImageProcessorServer {
       // Save as WebP with optimized settings
       const outputFilename = `${path.basename(inputPath, path.extname(inputPath))}.webp`;
       const outputPath = path.join(outputDir, outputFilename);
+<<<<<<< HEAD
       
       await pipeline.webp({ 
+=======
+
+      await pipeline.webp({
+>>>>>>> a1d31d0 (Initial commit: WebPerfect MCP Server)
           quality: 85,
           effort: 6,
           smartSubsample: true,
           nearLossless: false
       }).toFile(outputPath);
+<<<<<<< HEAD
       
+=======
+
+>>>>>>> a1d31d0 (Initial commit: WebPerfect MCP Server)
       const optimizedStats = await fs.stat(outputPath);
       progressCallback(`Completed ${filename}`);
-      
+
       return {
           originalSize,
           optimizedSize: optimizedStats.size,
