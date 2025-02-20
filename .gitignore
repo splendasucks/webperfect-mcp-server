@@ -31,3 +31,8 @@ coverage/
 # Temporary files
 tmp/
 temp/
+.cursor/
+.github/
+.husky/
+bunfig.toml
+cline_docs/
